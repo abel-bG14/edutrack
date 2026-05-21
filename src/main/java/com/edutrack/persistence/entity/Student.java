@@ -17,6 +17,8 @@ public class Student {
     @Column(unique = true, nullable = false)
     private String code;
 
+    private String career;
+
     private Integer cycle;
 
     private Boolean status;
@@ -45,6 +47,14 @@ public class Student {
 
     public void setCode(String code) {
         this.code = code;
+    }
+
+    public String getCareer() {
+        return career;
+    }
+
+    public void setCareer(String career) {
+        this.career = career;
     }
 
     public Integer getCycle() {
