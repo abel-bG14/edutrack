@@ -3,6 +3,7 @@ package com.edutrack.persistence.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -18,8 +19,12 @@ public class Evaluation {
     @Column(nullable = false)
     private String name;
 
+    private String description;
+
     @Column(nullable = false)
     private Double percentage;
+
+    private LocalDate evaluationDate;
 
     @ManyToOne
     @JoinColumn(name = "course_id", nullable = false)
@@ -47,12 +52,28 @@ public class Evaluation {
         this.name = name;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public Double getPercentage() {
         return percentage;
     }
 
     public void setPercentage(Double percentage) {
         this.percentage = percentage;
+    }
+
+    public LocalDate getEvaluationDate() {
+        return evaluationDate;
+    }
+
+    public void setEvaluationDate(LocalDate evaluationDate) {
+        this.evaluationDate = evaluationDate;
     }
 
     public Course getCourse() {
